@@ -1,0 +1,182 @@
+/* Semantics */
+nav {
+    background: rgba(255, 230, 0, 0);
+} 
+
+main {
+    background: linear-gradient(45deg, rgba(0,216,255,1) 48%, rgba(167,0,255,1) 100%);
+    min-height: 100vh;
+}
+
+/* General Styling */
+
+h1 {
+    font-family: indie-flower,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+}
+
+h3 {
+    font-family: acumin-pro, sans-serif;;
+    font-weight: 400;
+    font-style: normal;
+    font-size: larger;
+    padding: 5 0 1 0px
+}
+
+hr {
+    padding: 5 0 25 0px;
+    width:50%;
+    text-align:left;
+    margin-left:0"
+}
+
+p {
+    font-family: acumin-pro, sans-serif;;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Modals */
+.modal {
+    visibility: hidden;
+    position:fixed;
+    background-color: rgba(157, 157, 157, 0.529);
+    top:0%;
+    left:0%;
+    height:100%;
+    width:100%;
+    z-index:100;
+}
+
+.modal-body {
+    background: rgba(0,216,255,1);
+    margin:auto;
+    margin-top: 10vh;
+    align-items: center;
+    justify-content: center;
+    max-height:80vh;
+    width:80%;
+    transform: translateY(-100vh);
+    transition: transform .5s;
+    
+}
+
+.modal-active {
+    visibility: visible;
+}
+
+.modal-active .modal-body{
+    transform: translateY(0);
+}
+
+.modal-exit {
+    position:relative;
+    right:calc(-100% + 1em);
+    width: 1.5em;
+    height: 1.5em;
+    background-color: #bff5ff;
+    border-radius: .25rem;
+    border:black;
+}
+.modal-exit::before{
+    height:100%;
+    display:block;
+    content: ' ';
+    background-image: url('../svg/close-icon.svg');
+}
+
+/* Cards */
+
+.centered img {
+    max-width: 50px;
+}
+
+#main-wrapper {
+    background: #f9f9f9;
+    border-radius: 1rem;
+    overflow-x:auto;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* ID Targets */
+#card-grid {
+    width: 500%;
+}
+#quote-text {
+    font-family: indie-flower,sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+#add-new {
+  display: block;
+  width: 100%;
+  border-width: 2px;
+  border-color: white;
+  padding: 10px 28px;
+  cursor: pointer;
+  text-align: center;
+  font-family: quicksand,sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+#add-new:hover{
+    background: rgba(255, 230, 0, 0.612);
+    background: linear-gradient(45deg,rgba(0,216,255,1) 48%, rgba(166, 0, 255, 0.742) 100%);
+    border: none;
+    margin: 2px;
+    color: white;
+}
+#nutrition-container {
+    display: inline-block;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(10px);
+    
+}
+#nutrition-search {
+    border-width: 2px;
+    border-color: white;
+    padding: 10px 28px;
+    cursor: pointer;
+    text-align: center;
+    font-family: quicksand,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+#nutrition-search:hover{
+    background: rgba(255, 230, 0, 0.612);
+    background: linear-gradient(45deg,rgba(0,216,255,1) 48%, rgba(166, 0, 255, 0.742) 100%);
+    border: none;
+    margin: calc(2px + .25rem) !important;
+    color: white;
+}
+@media only screen and (min-width: 768px) {
+    /* Desktop Overrides: */
+    footer{
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:25vw;
+    }
+    .modal-body{
+        width: 33%;
+    }
+    #main-wrapper{
+        overflow-x: initial;
+    }
+    canvas {
+        max-height: calc(50vh - 6.5rem - 116.64px) !important;
+        width: calc((75vw - (2*2.5rem + 6*1.5rem + 2*2rem))/3) !important;
+    }
+    #card-grid {
+        width: 100%;
+    }
+}

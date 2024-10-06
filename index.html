@@ -1,0 +1,148 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js" integrity="sha512-BqNYFBAzGfZDnIWSAEGZSD/QFKeVxms2dIBPfw11gZubWwKUjEgmFUtUls8vZ6xTRZN/jaXGHD/ZaxD9+fDo0A==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css" integrity="sha512-RntatPOhEcQEA81gC/esYoCkGkL7AYV7TeTPoU+R9zE44/yWxVvLIBfBSaMu78rhoDd73ZeRHXRJN5+aPEK53Q==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/css/style.css"/>   
+    <link rel="stylesheet" href="https://use.typekit.net/wfs8ufu.css">
+    <title>MCS Project App</title>
+</head>
+
+<body>
+    <main class="md:flex flex-col md:flex-row">
+<!--START left hand menu desktop/top menu mobile-->
+        <div id="wrapper" class="flex flex-wrap w-full flex-row md:h-screen md:w-1/4">
+            <nav class="w-screen content-center">
+                <h1 class="pt-5 pb-6 text-center text-white">Let's Get Fit!!</h1>
+
+                <!--Nav Bar-->
+                <div class="flex flex-wrap justify-center w-3/4 mx-auto pb-6">
+                        <button type="button" id="add-new" class="shadow text-center rounded" onClick="openModal('input-modal')">+ New Workout</button>
+                </div>    
+                <!--  -->
+                <!-- nutrition info search-->
+
+                <div id="nutrition-container" class="text-center w-full md:p-2 lg:p-6 my-5 md:rounded-lg">
+                     <div class="justify-center my-4">
+                         <input id="nutrition-input" class=" shadow-inner rounded-md md:w-full p-2.5" id="food-input" placeholder="Nutrition Check"/>
+                         <button id="nutrition-search" class="shadow p-1 m-1 rounded">Search</button>
+                     </div>
+                     <div class="text-green-900 grid grid-cols-2">
+                        <div><p>Calories: <span id="calories"></span></p></div>
+                        <div><p>Protein: <span id="protein"></span></p></div>
+                        <div><p>Carbs: <span id="carbs"></span></p></div>
+                        <div><p>Fat: <span id="fat"></span></p></div>
+                     </div>
+                </div>
+            </nav>
+        </div>
+<!--END left hand menu desktop/top menu mobile-->
+
+<!-- START right hand chart section -->
+        <div id="main-wrapper" class="w-full flex-shrink-0 md:w-3/4 p-8 md:p-10">
+            <div id="scroll-area" class='overflow-x-auto'>
+            <div id="card-grid" class="w-full grid grid-rows-1 grid-cols-6 md:grid md:grid-rows-auto md:grid-cols-3 gap-6 md:gap-8">
+                <div class="card shadow color bg-white p-8 md:p-6">
+                    <div class="centered">
+                        <img src="./assets/svg/Chest.svg" alt="" />
+                        <h3>Chest</h3>
+                        <hr>
+                    </div>
+                    <div class='chart-target' id="dynamic-chart-chest"></div>
+                </div>
+                <div class="card rounded shadow color bg-white p-8 md:p-6 ">
+                        <div class="centered">
+                            <img src="./assets/svg/Arm.svg" alt="" />
+                            <h3>Arms</h3>
+                            <hr>
+                        </div>  
+                        <div class='chart-target' id="dynamic-chart-arms"></div>
+                </div>
+                <div class="card rounded shadow color bg-white p-8 md:p-6 ">
+                        <div class="centered">
+                            <img src="./assets/svg/Shoulder.svg" alt="" />
+                            <h3>Shoulders</h3>
+                            <hr>
+                        </div>
+                        <div class='chart-target' id="dynamic-chart-shoulders"></div>
+                </div>
+                <div class="card rounded shadow color bg-white p-8 md:p-6 ">
+                        <div class="centered">
+                            <img src="./assets/svg/Back.svg" alt="" />
+                            <h3>Back</h3>
+                            <hr>
+                        </div>
+                        <div class='chart-target' id="dynamic-chart-back"></div>
+                </div>
+                <div class="card rounded shadow color bg-white p-8 md:p-6 ">
+                        <div class="centered">
+                            <img src="./assets/svg/Leg.svg" alt="" />
+                            <h3>Legs</h3>
+                            <hr>
+                        </div>
+                        <div class='chart-target' id="dynamic-chart-legs"></div>
+                </div>
+                <div class="card rounded shadow color bg-white p-8 md:p-6 ">
+                        <div class="centered">
+                            <img src="./assets/svg/Abs.svg" alt="" />
+                            <h3>Abs</h3>
+                            <hr>
+                        </div>
+                        <div class='chart-target' id="dynamic-chart-abs"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+<!-- END right hand chart section -->
+<!--Footer-->
+        <footer class="flex flex-row pt-2">
+            <!--Make copyright center inline with edamam center-->
+            <p class="m-3 my-auto justify-center text-center">Contributors: Akash, Pranav, Ashish</p>    
+            <div id="edamam-badge" data-color="white" class="m-3 my-auto"></div>
+        </footer>
+    </main>
+
+<!--Modal-->
+    <div class='modal' id='input-modal'>
+        <div class="modal-body shadow-lg rounded-xl py-2 px-4">
+            <!--randomly generated motivational quote-->
+            <p id="quote-text" class="p-2 mb-3 text-white italic text-center"></p>
+            <div>Week:
+                <select id="date" class="rounded p-1">
+                    <option value="0">Week 1</option>
+                    <option value="1">Week 2</option>
+                    <option value="2">Week 3</option>
+                    <option value="3">Week 4</option>
+                    <option value="4">Week 5</option>
+                    <option value="5">Week 6</option>
+                </select>
+            </div>
+            <div class="my-2">Type of Exercise:
+                <select id="body-focus" class="rounded-md p-1">
+                    <option value="chest">Chest</option>
+                    <option value="arms">Arms</option>
+                    <option value="shoulders">Shoulders</option>
+                    <option value="back">Back</option>
+                    <option value="legs">Legs</option>
+                    <option value="abs">Abs</option>
+                </select>
+            </div>
+            <div>Weigh Lifted:
+                <input id="pounds" type="number" placeholder="lbs" class="rounded-md p-1 mb-1 mr-1 w-14 "/>
+            </div>
+            <button class="shadow hover:bg-purple-400 color bg-purple-400 text-white font-bold py-2 px-4 rounded m-2 justify-center" id="form-button">Submit</button>
+        </div>
+    </div>
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js" integrity="sha512-BqNYFBAzGfZDnIWSAEGZSD/QFKeVxms2dIBPfw11gZubWwKUjEgmFUtUls8vZ6xTRZN/jaXGHD/ZaxD9+fDo0A==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./assets/js/modals.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+
+</html>
