@@ -47,5 +47,5 @@ Should development continue in the future, we intend to allow for more dynamic d
 
 ## Authors
 
-Sharni Zaugg, Nathaly Calderon, Malcolm Easton, Kelly Lotz
+Ashish Nair, Akash Neharkar, Pranav Jha
 
