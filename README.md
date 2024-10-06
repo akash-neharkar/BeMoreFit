@@ -7,7 +7,7 @@ Let's Get Physical is a weight training application that tracks a user's progres
 As a user I want to be able to track my weight lifting progress over the course of a six week period, targeting certain body parts/muscle groups.
 
 
-[Link To Deployed App](https://sharni595.github.io/lets-get-physical/)
+[Link To Deployed App](https://vercel.com/akash-neharkars-projects/be-more-fit)
 
 ## Images of App
 
